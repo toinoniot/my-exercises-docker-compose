@@ -1,0 +1,9 @@
+services:
+  backend:
+    image: toinolais/backend
+    ports:
+      - 8080:8080
+  frontend:
+    image: toinolais/frontend
+    ports:
+      - 5001:5001 
