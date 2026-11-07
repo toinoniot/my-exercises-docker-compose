@@ -3,7 +3,13 @@ services:
     image: toinolais/backend
     ports:
       - 8080:8080
+    restart: unless-stopped
+    environment:
+      REDIS_HOST: redis
   frontend:
     image: toinolais/frontend
     ports:
-      - 5001:5001 
+      - 5001:5001
+  redis:
+    image: redis
+
