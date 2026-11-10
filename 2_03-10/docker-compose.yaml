@@ -6,10 +6,21 @@ services:
     restart: unless-stopped
     environment:
       REDIS_HOST: redis
+      POSTGRES_HOST: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    depends_on:
+      - db
   frontend:
     image: toinolais/frontend
     ports:
       - 5001:5001
   redis:
     image: redis
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
 
